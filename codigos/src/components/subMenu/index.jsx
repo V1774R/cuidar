@@ -18,7 +18,7 @@ const Area = styled.div`
 export const SubMenu = () => {
 
     const {state, dispatch} = useContext(Contexto)
-    console.log(state)
+
     return (
         <Area>
             <p>Olá, {state.user != null ? state.user.nome : "Usuário"} </p>

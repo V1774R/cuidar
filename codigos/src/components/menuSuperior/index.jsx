@@ -16,7 +16,7 @@ const MenuSup = styled.nav`
   color: #fff;
   transition: 1s;
   z-index: 10;
-`;
+`
 
 const MenuItem = styled(Link)`
   color: #ecf0f1;
@@ -28,7 +28,7 @@ const MenuItem = styled(Link)`
   &:hover {
     background-color: #34495e;
   }
-`;
+`
 
 export const MenuSuperior = () => {
   const { state, dispatch } = useContext(Contexto)
@@ -36,12 +36,15 @@ export const MenuSuperior = () => {
 
   return (
     <MenuSup style={{ top: state.visibilidadeMenu ? "calc(64px + 30px)" : "-101vh" }} onClick={() => { dispatch({ type: "ALTERNAR_MENU_SUPERIOR" }) }}>
-      <MenuItem className="disable" to="/" >👤 Perfil do Usuário</MenuItem>
-      <MenuItem className="disable" to="/" >📚 Gestão Escolar</MenuItem>
-      <MenuItem className="disable" to="/" >🚨 Emergência</MenuItem>
-      <MenuItem className="disable" to="/" >⚙️ Configurações</MenuItem>
-      <MenuItem className="disable" to="/" >ℹ️ Ajuda e Suporte</MenuItem>
-      <MenuItem onClick={() => {dispatch({ type: "SAIR" })}}>↩️ Sair </MenuItem>
+      <MenuItem to="/" >🏠 Inicio</MenuItem>
+      <MenuItem to="/busca" >🔍 Buscar aluno</MenuItem>
+      <MenuItem to="/ajuda" >🌳 Ávore de Decisão</MenuItem>
+      <MenuItem to="/perfil" >👤 Perfil do Usuário</MenuItem>
+      <MenuItem to="/gestao" >📚 Gestão Escolar</MenuItem>
+      <MenuItem to="/emergencia" >🚨 Emergência</MenuItem>
+      {/* <MenuItem to="/configuracao" >⚙️ Configurações</MenuItem> */}
+      <MenuItem to="/suporte" >ℹ️ Ajuda e Suporte</MenuItem>
+      <MenuItem to={"/"} onClick={() => {dispatch({ type: "SAIR" })}}>↩️ Sair </MenuItem>
     </MenuSup>
-  );
-};
+  )
+}

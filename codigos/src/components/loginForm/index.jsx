@@ -9,11 +9,15 @@ const Form = styled.form`
   flex-direction: column;
   gap: 12px;
 
+  img{
+    width: 260px;
+    margin: auto;
+  }
+
   p{
     width: 95%;
     text-align: justify;
     margin: auto;
-
   }
 `;
 
@@ -101,7 +105,7 @@ export const LoginForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-            <p>Esse sistema está sendo desenvolvido inicialmente para aparelhos móveis. Recomenda-se que seja testado em celulares ou tablets.</p>
+      <img src="/imgs/logo.png" alt="Logo da prefeitura de Machados-PE" />           
       <div>
         <Label>CPF:</Label>
         <Input
