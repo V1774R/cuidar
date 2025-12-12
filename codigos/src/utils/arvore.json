@@ -1,0 +1,250 @@
+{
+  "inicio": {
+    "question": "Qual a situação?",
+    "options": [
+      { "text": "Engasgo", "next": "engasgo" },
+      { "text": "Convulsão", "next": "convulsao" },
+      { "text": "Sangramento", "next": "sangramento" },
+      { "text": "Queimadura", "next": "queimadura" },
+      { "text": "Reação alérgica grave (anafilaxia)", "next": "anafilaxia" },
+      { "text": "Crise asmática / dificuldade para respirar", "next": "asma" },
+      { "text": "Desmaio (síncope) / pessoa inconsciente", "next": "desmaio" },
+      { "text": "Queda / trauma", "next": "trauma" }
+    ]
+  },
+
+  "engasgo": {
+    "question": "A vítima consegue tossir, falar ou respirar?",
+    "options": [
+      { "text": "Sim (tosse eficaz)", "next": "engasgo_tosse_eficaz" },
+      { "text": "Não (tosse ineficaz, respiração ruidosa ou dificuldade evidente)", "next": "engasgo_tosse_ineficaz" },
+      { "text": "Inconsciente", "next": "engasgo_inconsciente" }
+    ]
+  },
+  "engasgo_tosse_eficaz": {
+    "result": "✅ Incentive a tossir, não dê tapas nas costas. Observe continuamente. Se piorar (tornar-se ineficaz), avance para protocolo de engasgo com tosse ineficaz. Se resolver, reavalie e monitore."
+  },
+  "engasgo_tosse_ineficaz": {
+    "question": "Qual a idade da vítima?",
+    "options": [
+      { "text": "Bebê (< 1 ano)", "next": "engasgo_bebe" },
+      { "text": "Criança/adolescente (≥ 1 ano)", "next": "engasgo_crianca" }
+    ]
+  },
+  "engasgo_bebe": {
+    "question": "Faça 5 tapas nas costas + 5 compressões torácicas. O objeto saiu?",
+    "options": [
+      { "text": "Sim", "next": "engasgo_pos_saida" },
+      { "text": "Não", "next": "engasgo_bebe_continuar" }
+    ]
+  },
+  "engasgo_bebe_continuar": {
+    "result": "🚨 Continue ciclos de 5 tapas nas costas e 5 compressões torácicas. Se a criança piorar, ficar cianótica ou ficar inconsciente, acione o SAMU (192) e avance para 'engasgo_inconsciente'."
+  },
+  "engasgo_crianca": {
+    "question": "Aplique 5 tapas interescapulares. Persistindo, faça compressões abdominais (se treinado). O objeto saiu?",
+    "options": [
+      { "text": "Sim", "next": "engasgo_pos_saida" },
+      { "text": "Não", "next": "engasgo_crianca_continuar" }
+    ]
+  },
+  "engasgo_crianca_continuar": {
+    "result": "🚨 Continue alternando 5 tapas nas costas e compressões abdominais (se treinado). Se piorar, ficar cianótica ou inconsciente, acione o SAMU (192) e avance para 'engasgo_inconsciente'."
+  },
+  "engasgo_inconsciente": {
+    "question": "A vítima respira?",
+    "options": [
+      { "text": "Sim", "next": "engasgo_recuperacao" },
+      { "text": "Não", "next": "engasgo_rCP" }
+    ]
+  },
+  "engasgo_recuperacao": {
+    "result": "✅ Coloque em posição lateral de segurança, monitore respiração, acione o SAMU (192) e observe continuamente até a chegada."
+  },
+  "engasgo_rCP": {
+    "result": "🚨 Inicie RCP com compressões torácicas (100–120/min) e, antes de ventilar, verifique rapidamente a boca: se vir objeto solto, remova-o. Não faça varredura cega. Acione o SAMU (192) imediatamente."
+  },
+  "engasgo_pos_saida": {
+    "result": "✅ Avalie por lesões e necessidade de avaliação médica. Se desconforto persistir, acione o SAMU (192) ou encaminhe para avaliação."
+  },
+
+  "convulsao": {
+    "question": "A convulsão está acontecendo neste momento?",
+    "options": [
+      { "text": "Sim", "next": "convulsao_em_andamento" },
+      { "text": "Não (pós-crise)", "next": "convulsao_pos_crise" }
+    ]
+  },
+  "convulsao_em_andamento": {
+    "question": "A área está segura e a cabeça/ombros estão protegidos?",
+    "options": [
+      { "text": "Sim", "next": "convulsao_tempo" },
+      { "text": "Não", "next": "convulsao_proteger" }
+    ]
+  },
+  "convulsao_proteger": {
+    "result": "✅ Afaste objetos, proteja a cabeça com algo macio, não contenha os movimentos, não coloque nada na boca, afrouxe roupas apertadas. Em seguida, avalie tempo de crise."
+  },
+  "convulsao_tempo": {
+    "question": "A crise dura mais de 5 minutos ou há crises repetidas sem recuperação?",
+    "options": [
+      { "text": "Sim", "next": "convulsao_chamar_samu" },
+      { "text": "Não", "next": "convulsao_aguardar" }
+    ]
+  },
+  "convulsao_chamar_samu": {
+    "result": "🚨 Acione imediatamente o SAMU (192). Continue protegendo a vítima, observe respiração e sinais de trauma."
+  },
+  "convulsao_aguardar": {
+    "question": "A crise cessou?",
+    "options": [
+      { "text": "Sim", "next": "convulsao_pos_crise" },
+      { "text": "Não", "next": "convulsao_chamar_samu" }
+    ]
+  },
+  "convulsao_pos_crise": {
+    "question": "A vítima está respirando?",
+    "options": [
+      { "text": "Sim", "next": "convulsao_recuperacao" },
+      { "text": "Não", "next": "convulsao_rCP" }
+    ]
+  },
+  "convulsao_recuperacao": {
+    "result": "✅ Coloque em posição lateral de segurança, monitore respiração e estado de consciência. Acione o SAMU (192) se for primeira crise, se houver lesões, gestação, dificuldade respiratória ou não recuperação em poucos minutos."
+  },
+  "convulsao_rCP": {
+    "result": "🚨 Inicie RCP (compressões 100–120/min) e acione o SAMU (192)."
+  },
+
+  "sangramento": {
+    "question": "O sangramento é intenso (jato, encharca curativo, não para com pressão leve)?",
+    "options": [
+      { "text": "Sim", "next": "sangramento_grave" },
+      { "text": "Não", "next": "sangramento_leve" }
+    ]
+  },
+  "sangramento_grave": {
+    "question": "Há objeto transfixante (ponta/vidro/ferro cravado)?",
+    "options": [
+      { "text": "Sim", "next": "sangramento_objeto" },
+      { "text": "Não", "next": "sangramento_compressao" }
+    ]
+  },
+  "sangramento_objeto": {
+    "result": "🚨 NÃO remova o objeto. Imobilize ao redor com compressas, aplique pressão ao redor, mantenha o membro elevado se possível. Acione o SAMU (192)."
+  },
+  "sangramento_compressao": {
+    "result": "🚨 Faça compressão direta e firme com gaze/tecido limpo, mantenha pressão contínua. Se possível, eleve o membro. Acione o SAMU (192)."
+  },
+  "sangramento_leve": {
+    "result": "✅ Lave com água corrente, retire sujidades visíveis, desinfete (se disponível), faça curativo simples. Observe sinais de infecção nos dias seguintes."
+  },
+
+  "queimadura": {
+    "question": "Tipo de queimadura?",
+    "options": [
+      { "text": "Térmica (líquidos quentes, fogo, superfícies)", "next": "queimadura_termica" },
+      { "text": "Química (produtos de limpeza, ácidos/base)", "next": "queimadura_quimica" },
+      { "text": "Elétrica", "next": "queimadura_eletrica" }
+    ]
+  },
+  "queimadura_termica": {
+    "question": "Extensão ou gravidade: extensa, em face/genitais/mãos/pés/articulações, ou há bolhas grandes?",
+    "options": [
+      { "text": "Sim", "next": "queimadura_grave_acao" },
+      { "text": "Não", "next": "queimadura_leve_acao" }
+    ]
+  },
+  "queimadura_leve_acao": {
+    "result": "✅ Resfrie imediatamente com água corrente fria por 20 minutos. Retire bijuterias/roupas apertadas do entorno. NÃO aplique pomadas, gelo, pasta de dentes ou quebrar bolhas. Cubra com curativo não aderente e monitore."
+  },
+  "queimadura_grave_acao": {
+    "result": "🚨 Resfrie com água corrente enquanto for seguro, cubra com pano limpo/curativo estéril, não rompa bolhas. Acione o SAMU (192). Monitorar sinais de choque."
+  },
+  "queimadura_quimica": {
+    "result": "🚨 Remova roupas/objetos contaminados usando EPI se disponível, lave abundantemente com água corrente por pelo menos 20 minutos. NÃO neutralize com outras substâncias. Acione o SAMU (192) e informe o agente químico se souber."
+  },
+  "queimadura_eletrica": {
+    "result": "🚨 Desligue a fonte elétrica antes de tocar na vítima. Avalie consciência e respiração. Mesmo sem lesões aparentes, acione o SAMU (192) devido ao risco de arritmias e lesões internas."
+  },
+
+  "anafilaxia": {
+    "question": "Sinais de gravidade presentes (dificuldade para respirar, chiado, inchaço de lábios/lingua, queda de pressão, palidez, confusão)?",
+    "options": [
+      { "text": "Sim", "next": "anafilaxia_grave" },
+      { "text": "Não (apenas urticária/coceira leves)", "next": "anafilaxia_leve" }
+    ]
+  },
+  "anafilaxia_grave": {
+    "question": "A vítima possui auto-injetor de adrenalina prescrito e acessível?",
+    "options": [
+      { "text": "Sim", "next": "anafilaxia_auto_injetor" },
+      { "text": "Não", "next": "anafilaxia_sem_injetor" }
+    ]
+  },
+  "anafilaxia_auto_injetor": {
+    "result": "🚨 Ajude a administrar o auto-injetor conforme rótulo, preferencialmente na face anterolateral da coxa. Acione imediatamente o SAMU (192). Deite a vítima com pernas elevadas (se não houver dificuldade respiratória que exija sentar), monitore."
+  },
+  "anafilaxia_sem_injetor": {
+    "result": "🚨 Acione imediatamente o SAMU (192). Deite com pernas elevadas (ou posição confortável para respirar), afaste o alérgeno, monitore respiração e consciência constantemente."
+  },
+  "anafilaxia_leve": {
+    "result": "✅ Afaste o alérgeno, observe e monitore. Se houver progressão para sinais de gravidade, siga para 'anafilaxia_grave' e acione o SAMU (192)."
+  },
+
+  "asma": {
+    "question": "Sinais de gravidade (fala entrecortada, uso de musculatura acessória/tiragem, lábios arroxeados, exaustão, muito agitado ou sonolento)?",
+    "options": [
+      { "text": "Sim", "next": "asma_grave" },
+      { "text": "Não", "next": "asma_moderada_leve" }
+    ]
+  },
+  "asma_grave": {
+    "result": "🚨 Acione o SAMU (192). Sente a vítima inclinada para frente, solte roupas apertadas, incentive respiração lenta. Se houver inalador prescrito e disponível, auxilie o uso conforme orientação médica pessoal."
+  },
+  "asma_moderada_leve": {
+    "result": "✅ Sente a vítima, ajude-a a usar o inalador prescrito se disponível. Observe melhora. Se não houver melhora rápida ou houver piora, acione o SAMU (192)."
+  },
+
+  "desmaio": {
+    "question": "A pessoa responde e respira?",
+    "options": [
+      { "text": "Responde e respira", "next": "desmaio_recuperando" },
+      { "text": "Não responde, respira", "next": "desmaio_recuperacao" },
+      { "text": "Não responde, não respira", "next": "desmaio_rCP" }
+    ]
+  },
+  "desmaio_recuperando": {
+    "result": "✅ Deite a pessoa com pernas elevadas, afrouxe roupas apertadas, refresque o ambiente. Observe. Se houver trauma, dor intensa, confusão, ou não melhorar em poucos minutos, acione o SAMU (192)."
+  },
+  "desmaio_recuperacao": {
+    "result": "✅ Coloque em posição lateral de segurança, monitore respiração e consciência. Acione o SAMU (192) se não recuperar rapidamente ou houver sinais de trauma."
+  },
+  "desmaio_rCP": {
+    "result": "🚨 Acione o SAMU (192) e inicie RCP com compressões torácicas (100–120/min) até chegada do socorro ou retorno da respiração."
+  },
+
+  "trauma": {
+    "question": "Houve impacto em cabeça/coluna ou queda significativa?",
+    "options": [
+      { "text": "Sim", "next": "trauma_potencial_grave" },
+      { "text": "Não", "next": "trauma_comum" }
+    ]
+  },
+  "trauma_potencial_grave": {
+    "question": "Há sinais de alerta (perda de consciência, vômitos repetidos, dor intensa, deformidade, sangramento pelo ouvido/nariz, convulsão, fraqueza/alteração neurológica)?",
+    "options": [
+      { "text": "Sim", "next": "trauma_acionar_samu" },
+      { "text": "Não", "next": "trauma_observar" }
+    ]
+  },
+  "trauma_acionar_samu": {
+    "result": "🚨 Imobilize, NÃO mova o pescoço/coluna, mantenha a cabeça alinhada. Controle sangramento se houver. Acione o SAMU (192)."
+  },
+  "trauma_observar": {
+    "result": "✅ Imobilize a área dolorida, aplique gelo envolto em pano por 20 minutos, eleve o membro se possível. Observe por piora. Encaminhe para avaliação se dor intensa ou limitação importante persistirem."
+  },
+  "trauma_comum": {
+    "result": "✅ Escoriações e contusões leves: limpeza com água e sabão, gelo envolto em pano por 20 minutos, curativo se necessário. Observe por sinais de piora."
+  }
+}
