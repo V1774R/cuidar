@@ -10,10 +10,11 @@ const alunosFake = [
         remediosUsoContinuo: ["Dipirona"],
         medicacoesEmergencia: ["Bombinha de Salbutamol"],
         planoSaude: "Unimed",
-        contatosEmergencia: [
-            "João Silva - (81) 99999-1111",
-            "Avó - (81) 98888-4444"
-        ],
+        contatos: {
+            pai: null,
+            mae: null,
+            responsavel: "Avó - Claudiane Pires da Silva - 81912333344"
+        },
         contatoMedico: "Dra. Fernanda - Pneumologista - (81) 91234-5678",
         observacoes: "Evitar atividades físicas intensas sem supervisão. Sempre carregar bombinha.",
         classe: "3° ano",
@@ -28,7 +29,11 @@ const alunosFake = [
         remediosUsoContinuo: [],
         medicacoesEmergencia: [],
         planoSaude: "SulAmérica",
-        contatosEmergencia: ["Ana Santos - (81) 98888-2222"],
+        contatos: {
+            pai: "Carlos Santos - (81) 98888-1111",
+            mae: "Ana Santos - (81) 98888-2222",
+            responsavel: "Ana Santos - (81) 98888-2222"
+        },
         contatoMedico: "Dr. Paulo - Pediatra - (81) 93456-7890",
         observacoes: "Criança saudável, sem restrições conhecidas.",
         classe: "4° ano",
@@ -43,7 +48,11 @@ const alunosFake = [
         remediosUsoContinuo: ["Antialérgico"],
         medicacoesEmergencia: ["Pomada de corticoide prescrita", "Antihistamínico oral"],
         planoSaude: "Bradesco Saúde",
-        contatosEmergencia: ["Carlos Souza - (81) 97777-3333"],
+        contatos: {
+            pai: "Carlos Souza - (81) 97777-3333",
+            mae: "Mariana Souza - (81) 95555-2222",
+            responsavel: "Carlos Souza - (81) 97777-3333"
+        },
         contatoMedico: "Dra. Juliana - Dermatologista - (81) 94567-1234",
         observacoes: "Evitar alimentos com leite. Atenção a crises de coceira intensa.",
         classe: "2° ano",
@@ -58,7 +67,11 @@ const alunosFake = [
         remediosUsoContinuo: ["Loratadina"],
         medicacoesEmergencia: ["Spray nasal"],
         planoSaude: "Hapvida",
-        contatosEmergencia: ["Marcos Pereira - (81) 95555-1234"],
+        contatos: {
+            pai: "Marcos Pereira - (81) 95555-1234",
+            mae: "Juliana Pereira - (81) 96666-2222",
+            responsavel: "Marcos Pereira - (81) 95555-1234"
+        },
         contatoMedico: "Dr. André - Alergista - (81) 97654-3210",
         observacoes: "Evitar exposição prolongada em ambientes com poeira.",
         classe: "5° ano",
@@ -73,7 +86,11 @@ const alunosFake = [
         remediosUsoContinuo: [],
         medicacoesEmergencia: ["Carvão ativado"],
         planoSaude: "Unimed",
-        contatosEmergencia: ["Paula Lima - (81) 93333-4444"],
+        contatos: {
+            pai: "Paulo Lima - (81) 93333-1111",
+            mae: "Paula Lima - (81) 93333-4444",
+            responsavel: "Paula Lima - (81) 93333-4444"
+        },
         contatoMedico: "Dra. Camila - Gastroenterologista - (81) 94567-9876",
         observacoes: "Evitar alimentos com trigo e derivados.",
         classe: "1° ano",
@@ -88,7 +105,11 @@ const alunosFake = [
         remediosUsoContinuo: [],
         medicacoesEmergencia: [],
         planoSaude: "Amil",
-        contatosEmergencia: ["José Almeida - (81) 92222-5555"],
+        contatos: {
+            pai: "José Almeida - (81) 92222-5555",
+            mae: "Carla Almeida - (81) 95555-4444",
+            responsavel: "José Almeida - (81) 92222-5555"
+        },
         contatoMedico: "Dr. Roberto - Oftalmologista - (81) 93456-1111",
         observacoes: "Usar óculos durante todas as atividades escolares.",
         classe: "6° ano",
@@ -103,7 +124,11 @@ const alunosFake = [
         remediosUsoContinuo: [],
         medicacoesEmergencia: ["Adrenalina auto-injetável"],
         planoSaude: "Bradesco Saúde",
-        contatosEmergencia: ["Fernanda Costa - (81) 98888-6666"],
+        contatos: {
+            pai: "Fernando Costa - (81) 98888-6666",
+            mae: "Fernanda Costa - (81) 98888-6666",
+            responsavel: "Fernanda Costa - (81) 98888-6666"
+        },
         contatoMedico: "Dr. Marcelo - Imunologista - (81) 97890-2222",
         observacoes: "Sempre carregar a caneta de adrenalina.",
         classe: "3° ano",
@@ -118,7 +143,11 @@ const alunosFake = [
         remediosUsoContinuo: ["Insulina"],
         medicacoesEmergencia: ["Glicose oral"],
         planoSaude: "SulAmérica",
-        contatosEmergencia: ["Patrícia Oliveira - (81) 97777-8888"],
+        contatos: {
+            pai: "Paulo Oliveira - (81) 97777-1111",
+            mae: "Patrícia Oliveira - (81) 97777-8888",
+            responsavel: "Patrícia Oliveira - (81) 97777-8888"
+        },
         contatoMedico: "Dra. Helena - Endocrinologista - (81) 93456-3333",
         observacoes: "Monitorar glicemia antes das refeições.",
         classe: "4° ano",
@@ -133,7 +162,11 @@ const alunosFake = [
         remediosUsoContinuo: [],
         medicacoesEmergencia: ["Antihistamínico oral"],
         planoSaude: "Unimed",
-        contatosEmergencia: ["Rodrigo Mendes - (81) 96666-7777"],
+        contatos: {
+            pai: "Rodrigo Mendes - (81) 96666-7777",
+            mae: "Carolina Mendes - (81) 95555-3333",
+            responsavel: "Rodrigo Mendes - (81) 96666-7777"
+        },
         contatoMedico: "Dr. Felipe - Pediatra - (81) 94567-4444",
         observacoes: "Evitar contato com alimentos de origem marinha.",
         classe: "2° ano",
@@ -148,13 +181,18 @@ const alunosFake = [
         remediosUsoContinuo: ["Carbamazepina"],
         medicacoesEmergencia: ["Diazepam retal"],
         planoSaude: "Hapvida",
-        contatosEmergencia: ["Luciana Barbosa - (81) 95555-9999"],
+        contatos: {
+            pai: "Carlos Barbosa - (81) 95555-9999",
+            mae: "Luciana Barbosa - (81) 95555-9999",
+            responsavel: "Luciana Barbosa - (81) 95555-9999"
+        },
         contatoMedico: "Dr. Sérgio - Neurologista - (81) 97890-5555",
         observacoes: "Evitar atividades com risco de queda sem supervisão.",
         classe: "7° ano",
         turno: "tarde"
     }
 ];
+
 
 const usuariosFake = [
     {

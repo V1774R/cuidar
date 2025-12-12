@@ -80,71 +80,84 @@ const Critico = styled(Info)`
 export const CardAluno = ({ aluno }) => {
     if (!aluno) return null
     const [aberto, setAberto] = useState(false)
+
     return (
         <Card>
-            <Header onClick={()=>{setAberto(!aberto)}}>
+            <Header onClick={() => setAberto(!aberto)}>
                 <Nome>{aluno.nome}</Nome>
                 <SubInfo>
-                <p>Idade: <span>{aluno.idade} anos</span></p>
-                <p>Tipo sanguíneo: <span>{aluno.tipoSanguineo}</span></p>
-                <p>Classe: <span>{aluno.classe}</span></p>
-                <p>Turno: <span>{aluno.turno}</span></p>
+                    <p>Idade: <span>{aluno.idade} anos</span></p>
+                    <p>Tipo sanguíneo: <span>{aluno.tipoSanguineo}</span></p>
+                    <p>Classe: <span>{aluno.classe}</span></p>
+                    <p>Turno: <span>{aluno.turno}</span></p>
                 </SubInfo>
             </Header>
 
-            {
-                aberto && (
-                    <>
-                        <Section>
-                            <Critico>
-                                <Label>🚨 Alergias:</Label>{" "}
-                                {aluno.alergias.length > 0 ? aluno.alergias.join(", ") : "Nenhuma"}
-                            </Critico>
-                            <Critico>
-                                <Label>🚨 Doenças:</Label>{" "}
-                                {aluno.doencas.length > 0 ? aluno.doencas.join(", ") : "Nenhuma"}
-                            </Critico>
-                            <Critico>
-                                <Label>🚨 Medicações de emergência:</Label>{" "}
-                                {aluno.medicacoesEmergencia.length > 0
-                                    ? aluno.medicacoesEmergencia.join(", ")
-                                    : "Nenhuma"}
-                            </Critico>
-                        </Section>
+            {aberto && (
+                <>
+                    <Section>
+                        <Critico>
+                            <Label>🚨 Alergias:</Label>{" "}
+                            {aluno.alergias.length > 0 ? aluno.alergias.join(", ") : "Nenhuma"}
+                        </Critico>
+                        <Critico>
+                            <Label>🚨 Doenças:</Label>{" "}
+                            {aluno.doencas.length > 0 ? aluno.doencas.join(", ") : "Nenhuma"}
+                        </Critico>
+                        <Critico>
+                            <Label>🚨 Medicações de emergência:</Label>{" "}
+                            {aluno.medicacoesEmergencia.length > 0
+                                ? aluno.medicacoesEmergencia.join(", ")
+                                : "Nenhuma"}
+                        </Critico>
+                    </Section>
 
-                        <Section>
-                            <Info>
-                                <Label>💊 Uso contínuo:</Label>{" "}
-                                {aluno.remediosUsoContinuo.length > 0
-                                    ? aluno.remediosUsoContinuo.join(", ")
-                                    : "Nenhum"}
-                            </Info>
-                            <Info>
-                                <Label>🏥 Plano de saúde:</Label> {aluno.planoSaude}
-                            </Info>
-                        </Section>
+                    <Section>
+                        <Info>
+                            <Label>💊 Uso contínuo:</Label>{" "}
+                            {aluno.remediosUsoContinuo.length > 0
+                                ? aluno.remediosUsoContinuo.join(", ")
+                                : "Nenhum"}
+                        </Info>
+                        <Info>
+                            <Label>🏥 Plano de saúde:</Label> {aluno.planoSaude}
+                        </Info>
+                    </Section>
 
-                        <Section>
-                            <Info>
-                                <Label>📞 Contatos de emergência:</Label>{" "}
-                                {aluno.contatosEmergencia.join(" | ")}
-                            </Info>
-                            <Info>
-                                <Label>🩺 Médico responsável:</Label> {aluno.contatoMedico}
-                            </Info>
-                        </Section>
+                    <Section>
+                        <Info>
+                            <Label>📞 Contatos:</Label>
 
-                        <Section>
-                            <Info>
-                                <Label>📝 Observações:</Label> {aluno.observacoes}
-                            </Info>
-                        </Section>                    
-                    </>
-                )
+                            {/* Se tiver pai ou mãe, mostra os que existirem */}
+                            {(aluno.contatos.pai || aluno.contatos.mae) ? (
+                                <>
+                                    {aluno.contatos.pai && (
+                                        <div><strong>Pai:</strong> {aluno.contatos.pai}</div>
+                                    )}
+                                    {aluno.contatos.mae && (
+                                        <div><strong>Mãe:</strong> {aluno.contatos.mae}</div>
+                                    )}
+                                </>
+                            ) : (
+                                /* Se não tiver nenhum dos dois, mostra responsável */
+                                <div><strong>Responsável:</strong> {aluno.contatos.responsavel}</div>
+                            )}
+                        </Info>
+
+                        <Info>
+                            <Label>🩺 Médico responsável:</Label> {aluno.contatoMedico}
+                        </Info>
+                    </Section>
 
 
-            }
-            
+
+                    <Section>
+                        <Info>
+                            <Label>📝 Observações:</Label> {aluno.observacoes}
+                        </Info>
+                    </Section>
+                </>
+            )}
         </Card>
     )
 }
